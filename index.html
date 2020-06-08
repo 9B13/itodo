@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="author" content="HexdePixel"/>
+		<meta name="description" content="Do it. The Itodo way."/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<title>Itodo</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<!-- header -->
+		<div id="header" class="bottom-hr">
+			<!-- logo + text -->
+			<img id="icon" src="assets/itodo.png" alt="Itodo logo"/>
+			Itodo!
+			
+			<!-- box for social media -->
+			<div id="social-media-container">
+				<!-- tweet button -->
+				<a class="twitter-share-button" data-size="large" href="https://twitter.com/intent/tweet?text=Itodo%20is%20a%20fun%20app%20that%20fights%20boredom!%20Can%20you%20complete%20more%20activities%20than%20me%3F">Tweet</a>
+			</div>
+		</div>
+
+		<!-- main content -->
+		<div id="body" class="bottom-hr">
+			<!-- activity button -->
+			<a id="activity" href="javascript:save_checkbox(); new_activity()"></a><br/>
+			<br/>
+			<!-- checkboxes -->
+			<input id="completed" type="checkbox"/>
+			<label for="completed">Completed this activity</label><br/>
+
+			<input id="dont-show" type="checkbox" disabled="true"/>
+			<label for="dont-show">
+				<i>Don't show this activity again</i>
+				<sup>(Not yet implemented)</sup>
+			</label>
+		</div>
+
+		<!-- counters that tally results -->
+		<div id="counters" class="bottom-hr">
+		</div>
+
+		<!-- log -->
+		<div id="log-container" class="bottom-hr">
+			<a href="javascript:toggle_log()">Toggle log of items</a>
+			<div id="log" style="display: none"></div>
+		</div>
+
+		<!-- twitter code -->
+		<script>
+			window.twttr = (function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0],
+				    t = window.twttr || {};
+				  if (d.getElementById(id)) return t;
+				  js = d.createElement(s);
+				  js.id = id;
+				  js.src = "https://platform.twitter.com/widgets.js";
+				  fjs.parentNode.insertBefore(js, fjs);
+
+				  t._e = [];
+				  t.ready = function(f) {
+				    t._e.push(f);
+				  };
+
+				  return t;
+			}(document, "script", "twitter-wjs"));
+		</script>
+		<script src="main.js"></script>
+	</body>
+</html>
