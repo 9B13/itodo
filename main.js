@@ -2,7 +2,7 @@
 // 0 - the activity text
 // 1 - whether it is completed
 var activities = [
-	["Do 50 crunches in 90 seconds.", true],
+	["Do 50 crunches in 90 seconds.", false],
 	["Donate money to a COVID-19 relief fund.", false],
 	["Do 10 pushups.", false],
 	["Learn to do nail art.", false],
@@ -56,6 +56,8 @@ var activity_el = document.getElementById("activity");
 var log = document.getElementById("log");
 var completed = document.getElementById("completed");
 var dont_show = document.getElementById("dont_show");
+var completed_counter = document.getElementById("completed_counter");
+var total_counter = document.getElementById("total_counter");
 
 var activity_id;
 var activity;
@@ -63,6 +65,14 @@ var activity;
 function save_checkbox() {
 	// saves previous checkbox settings
 	activities[activity_id][1] = completed.checked;
+
+	// updates tally
+	var tally = 0;
+
+	for (var activity_i in activities) { tally += activities[activity_i][1]; }
+
+	completed_counter.innerHTML = tally;
+	total_counter.innerHTML = activities.length;
 }
 
 function new_activity() {
